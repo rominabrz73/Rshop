@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getProduct } from "../api/queries"
+import { getProduct, getProductItem } from "../api/queries"
 import { Iproduct } from "../../types/server"
 import { useQuery } from "@tanstack/react-query"
 
@@ -8,7 +8,13 @@ return useQuery<Iproduct[]>({
     queryKey:["getProduct"],
     queryFn:getProduct
 });
-
+};
+export const useGetProductItem =({id}:{id:string}) =>{
+    return useQuery<Iproduct>({
+        queryKey:["getProductItem"],
+        queryFn:() => getProductItem ({id}),
+    });
+};
 //     const [data,setData] = useState<Iproduct[]>([]);
 // const [isLoading,setIsLoading]=useState(false)
 
@@ -22,4 +28,3 @@ return useQuery<Iproduct[]>({
 //         });
 // },[]);
 // return {data,isLoading}
-}

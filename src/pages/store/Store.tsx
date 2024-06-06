@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import Container from "../../component/container/Container"
 import Loading from "../../component/loading/Loading";
 import Productitem from "../../component/productitem/Productitem"
@@ -17,7 +18,7 @@ function Store() {
         ):(
       <div className="grid grid-cols-4 gap-4 mt-4"> 
     {data?.map((item)=>(
-      <Link>
+      <Link to={`/product/${item.id}`} key={item.id}>
        < Productitem key={item.id} {...item} /> 
       </Link>
     
