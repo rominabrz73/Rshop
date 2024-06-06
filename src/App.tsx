@@ -1,21 +1,20 @@
 
-import {  useState } from "react"
-import Button from "./component/button/Button"
-import Input from "./component/input/Input";
+
+
+import Layout from "./component/layout/Layout";
+import Routes from "./component/routes/Routes";
+
 
 
 function App() {
-  const [user,setUser] = useState("romina");
-
-
-
   return (
   <>
-  <Input   />
-  <Button  user={user} setUser={setUser}>
-    Click Me
-    </Button></>
-  )
+<Layout>
+    <Routes />
+</Layout>
+ 
+ </>
+  );
 }
 
-export default App
+export default App;

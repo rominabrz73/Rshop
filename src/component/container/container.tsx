@@ -1,8 +1,14 @@
 
-function container() {
+
+interface TBcontainer{
+    children:React.ReactNode
+}
+function Container({children}:TBcontainer) {
   return (
-    <div>container</div>
+    <div className="container mx-auto">
+        {children}
+    </div>
   )
 }
 
-export default container
+export default Container
