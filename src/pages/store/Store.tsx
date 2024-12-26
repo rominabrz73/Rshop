@@ -12,14 +12,14 @@ function Store() {
     <Container>
       {isLoading ?
       (
-      <div className="fixed w-full h-full left-0 top-0 bg-white flex justify-center items-center opacity-50 ">
+      <div className="fixed w-full h-full left-0 top-0  flex justify-center items-center opacity-50 ">
         <Loading/>
         </div>
         ):(
-      <div className="grid grid-cols-4 gap-4 mt-4"> 
+      <div className="grid grid-cols-4  gap-4 mt-4 "> 
     {data?.map((item)=>(
       <Link to={`/product/${item.id}`} key={item.id}>
-       < Productitem key={item.id} {...item} /> 
+       < Productitem  key={item.id} {...item} /> 
       </Link>
     
     ))}
