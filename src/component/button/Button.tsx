@@ -22,5 +22,8 @@ function checkVariant(variant ?:TVariant){
   else if(variant=="warning"){
     return{backgroundColor:"yellow" , color:"white"};
   }
+  else{
+    return{backgroundColor:"Blue" , color:"white"};
+  }
 
 }
