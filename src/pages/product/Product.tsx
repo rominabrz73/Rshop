@@ -8,7 +8,7 @@ import { useShoppingCartContext } from '../../context/ShoppingCartContext';
 function Product() {
      const{id}=useParams<{id:string}>();
      const{ data }=useGetProductItem({id:id as string});
-     const {cartItems,handleIncreasePoductQty,handleDecreasePoductQty} =useShoppingCartContext();
+     const {cartItems,handleIncreasePoductQty,handleDecreaseProductQty,getproductQTY ,handleRemoveProduct  } =useShoppingCartContext();
      console.log(cartItems)
   return (
     <div>
@@ -25,9 +25,10 @@ function Product() {
                   <img src={data?.image} alt="" />
                   <div className='grid grid-cols-3 mt-6'>
                     <Button onClick={()=>handleIncreasePoductQty(parseInt(id as string)) } className='rounded py-2'>+</Button>
-                    <span className='flex justify-center items-center'>{}</span>
-                    <Button onClick={()=>handleDecreasePoductQty(parseInt(id as string))}  className='rounded py-2'>-</Button>
+                    <span className='flex justify-center items-center'>{ getproductQTY (parseInt(id as string))  }</span>
+                    <Button onClick={()=>handleDecreaseProductQty(parseInt(id as string))}  className='rounded py-2'>-</Button>
                   </div>
+                  <Button onClick={()=>handleRemoveProduct(parseInt(id as string)) }>Remove</Button>
                 </div>
             </div>
         </Container>

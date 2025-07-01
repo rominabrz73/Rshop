@@ -6,12 +6,16 @@ interface IShoppingCartContextProvider {
 interface IcartItem {
   id: number;
   qty: number;
+  
 }
 interface IShoppingCartContext {
   cartItems: IcartItem[];
   //if function return nothing use void
   handleIncreasePoductQty:(id:number)=> void;
-  handleDecreasePoductQty:(id:number)=> void;
+  handleDecreaseProductQty:(id:number)=> void;
+  getproductQTY: (id: number) => number;
+  handleRemoveProduct:(id:number)=> void;
+
 }
 
 export const ShoppingCartContext = createContext({} as IShoppingCartContext);
@@ -42,27 +46,28 @@ export const ShoppingCartContextProvider = ({
       }
     });
   };
-  const handleDecreasePoductQty = (id:number) =>{
-    setcartItems((currentItems)=> {
-        if (currentItems.find((item) => item.id == id) == null) {
-          return [...currentItems, {id,qty:0}];
-          
-        } else {
-          return currentItems.map((item) => {
-            if (item.id == id && item.qty > 0) {
-              return {
-                ...item,
-                qty: item.qty - 1,
-              };
-            } else {
-              return item;
-            }
-          });
+  const getproductQTY = (id:number)=>{
+    return cartItems.find(item =>item.id == id)?.qty || 0
+  }
+  const handleDecreaseProductQty = (id: number) => {
+  setcartItems((currentItems) => {
+    return currentItems
+      .map((item) => {
+        if (item.id === id && item.qty > 0) {
+          return { ...item, qty: item.qty - 1 };
         }
-      });
-    };
+        return item;
+      })
+      .filter(item => item.qty > 0);
+  });
+};
+const handleRemoveProduct =(id:number) =>{
+  setcartItems((currentItems)=> {
+ return cartItems.filter(item =>item.id != id) ;
+})
+}
   return (
-    <ShoppingCartContext.Provider value={{ cartItems ,handleIncreasePoductQty,handleDecreasePoductQty}}>
+    <ShoppingCartContext.Provider value={{ cartItems ,handleIncreasePoductQty,handleDecreaseProductQty,getproductQTY, handleRemoveProduct}}>
       {children}
     </ShoppingCartContext.Provider>
   );
