@@ -1,7 +1,9 @@
 import {Link} from "react-router-dom"
-import Container from "../container/Container"
+import Container from "../container/container"
+import { useShoppingCartContext } from "../../context/ShoppingCartContext"
 
 function Navbar() {
+  const {cartQty} = useShoppingCartContext();
   return (
     <div className="shadow h-12 flex items-center">
       <Container>
@@ -15,7 +17,7 @@ function Navbar() {
             </nav>
             <div>
                 <ul>
-                    <li className="m-4"><Link to="/">Cart</Link></li>
+                    <li className="m-4"><Link to="/">{cartQty}</Link></li>
                 </ul>
             </div>
 

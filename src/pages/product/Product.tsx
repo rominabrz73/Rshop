@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from '../../component/container/Container'
+import Container from '../../component/container/container'
 import { useParams } from 'react-router-dom'
 import { useGetProductItem } from '../../services/hooks/queries';
 import Button from '../../component/button/Button';

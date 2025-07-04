@@ -5,7 +5,7 @@ interface TBcontainer{
 }
 function Container({children}:TBcontainer) {
   return (
-    <div className="container mx-auto">
+    <div className="Container mx-auto ">
         {children}
     </div>
   )
