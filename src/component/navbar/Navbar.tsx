@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom"
 import Container from "../container/container"
 import { useShoppingCartContext } from "../../context/ShoppingCartContext"
+import Button from "../button/Button";
 
 function Navbar() {
-  const {cartQty} = useShoppingCartContext();
+  const {cartQty,handleChangeTheme} = useShoppingCartContext();
   return (
     <div className="shadow h-12 flex items-center">
       <Container>
@@ -15,6 +16,11 @@ function Navbar() {
 
                 </ul>
             </nav>
+            <div>
+              <Button onClick={handleChangeTheme}>
+                Change Theme
+              </Button>
+            </div>
             <div>
                 <ul>
                     <li className="m-4"><Link to="/">{cartQty}</Link></li>

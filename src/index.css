@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --background:white;
+  --text-color:#333;
+  --text-color-light:#777;
+  --content-wrapper:#dfdfdf ;
+  --primary:rgb(0,123,255);
+  --danger:red;
+  --warning:yellow;
+}
+:root.dark {
+  --background:#333;
+ --text-color:white;
+  --text-color-light:#777;
+  --content-wrapper:#666 ;
+  --primary:rgb(0,123,255);
+  --secondry:gray;
+  --danger:red;
+  --warning:yellow;
+}
+body{
+    font-size:16px;
+    background-color: var(--background);
+    color:var(--text-color);
+}
